@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: estock-zuul-api-gateway-server-deployment
+  labels:
+    app: estock-zuul-api-gateway-server
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: estock-zuul-api-gateway-server
+  template:
+    metadata:
+      labels:
+        app: estock-zuul-api-gateway-server
+    spec:
+      containers:
+      - name: estock-zuul-api-gateway-server
+        image: suriyasiva8/estock-zuul-api-gateway-server
+        ports:
+        - containerPort: 8011
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: estock-zuul-api-gateway-server-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: 8011
+      port: 80
+      protocol: TCP
+  selector:
+    app: estock-zuul-api-gateway-server   
+        
+        

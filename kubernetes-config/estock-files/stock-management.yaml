@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: estock-management-deployment
+  labels:
+    app: estock-management
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: estock-management
+  template:
+    metadata:
+      labels:
+        app: estock-management
+    spec:
+      containers:
+      - name: estock-management
+        image: suriyasiva8/estock-management
+        ports:
+        - containerPort: 8090
+        env:
+        - name: DB_URI  # Setting Database username from Secret
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-credentials # Secret Name
+              key: uri
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: estock-management-svc
+spec:
+  ports:
+    - targetPort: 8090
+      port: 80
+  selector:
+    app: estock-management

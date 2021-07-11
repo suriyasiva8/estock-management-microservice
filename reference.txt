@@ -1,0 +1,147 @@
+Udemy Course Referred for Microservice and its github code for reference
+----------------------------------------
+https://cognizant.udemy.com/course/spring-boot-microservices-and-spring-cloud/learn/lecture/15195638#overview
+https://github.com/simplyi/SpringCloudVideoCourse
+
+Referred the below github for my sql deployment in kubernetes and my sql configuration in microservice
+------------------------------
+https://github.com/shameed1910/springboot-angular-kubernetes/blob/master/kubernetes/deployment.yml
+
+
+Youtube referene urls
+--------------------------
+Simple video to deploy spring boot application in gcp kubernetes 
+-----------------
+https://www.youtube.com/watch?v=SzbeDqBSRkc&ab_channel=PlayJava
+
+
+For deploying complete microservice in kubernets
+https://www.youtube.com/watch?v=VAmntTPebKE&ab_channel=DailyCodeBuffer
+
+
+
+github
+https://github.com/shabbirdwd53/Springboot-k8s/blob/main/service-registry.yml
+
+
+
+Accrediation Kuberentes References
+--------------------------------
+
+https://www.zdnet.com/article/microsoft-to-stop-supporting-its-azure-container-service-in-january-2020/
+acs depreceatd and not available in portal
+
+//To start kubernetes instance dashboard in local
+
+//Docker commands
+docker images -->to view images
+docker ps --> to view container 
+docker ps -a --> to view exited container
+docker build -t imageName -->for docker build
+docker tag localImageName hubImageName -->for tag
+docker push hubImageName -->for pushing
+docker rm imageName --> to remove image
+docker container rm containerId -->to remove container
+docker system prune --al -->to delete all stopped container data/images
+
+To start dashboard from kubernets after doing some stuffs
+---------------------------------------
+kubectl proxy
+and go to the link http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/overview?namespace=default
+
+To start kubernets dashboard from minikube
+----------------------------------------
+minikube start
+minikube dashboard
+
+if external enpoint is not created for service by using minikube please use the below command
+--------------
+minikube tunnel
+
+
+//Creating RabbitMq instance
+referece url: https://kubernetes.io/docs/tasks/job/coarse-parallel-processing-work-queue/#starting-a-message-queue-service
+
+//Starts
+kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/release-1.3/examples/celery-rabbitmq/rabbitmq-service.yaml
+
+kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/release-1.3/examples/celery-rabbitmq/rabbitmq-controller.yaml
+
+${RABBITMQ_SERVICE_SERVICE_HOST} will contain host in config map auto created so you can use it in application.properties
+
+
+Suresh
+
+
+Spring Boot SSL Certificate - https
+https://www.thomasvitale.com/https-spring-boot-ssl-certificate/
+
+
+Two Factor AUthentication:
+
+ 
+
+https://www.twilio.com/docs/authy/quickstart/two-factor-authentication-java-spring
+
+ 
+
+
+https://www.twilio.com/code-exchange/omnichannel-two-fa
+---------
+Below includes source code of Angular & Spring boot example for 2FA 
+https://www.javachinna.com/spring-boot-angular-two-factor-authentication/
+https://dzone.com/articles/otp-one-time-password-using-spring-boot-web-applic
+
+
+Swagger Documentation References-
+------------------------------------
+https://medium.com/spring-boot/building-microservice-with-spring-boot-part-04-8ab75353b9ee#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjExMmU0YjUyYWI4MzMwMTdkMzg1Y2UwZDBiNGM2MDU4N2VkMjU4NDIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MjQ4MDYwNjIsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMzA5NzEzNDExNDQwMzMxMDk4MCIsImVtYWlsIjoic3VyaXlhc2l2YThAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJTaXZhIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoaXdRLTNremdIWE1weUNkZTlLVnNmeWU2dTFKVVhSREFEQjVQUTBBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlNpdmEiLCJpYXQiOjE2MjQ4MDYzNjIsImV4cCI6MTYyNDgwOTk2MiwianRpIjoiZmY1MmRlMjMyYzJkZjc3NTRlMzZmYzhlODU3OWYxOWQxMTFjZTcwYyJ9.WoM-cVn4HU_-omJpP2PBUVjNUMN9wLSfUGp93OITk3UFR-k1_8Y7vBvpjoD0XlrVhw3aHF6cy8zRaicCDGBu4BiIRq4svLdbvj4aMvX_792gQlu0NSGiyQNt2BZv_Ds2qDhf0M72IfVhehMBGkJCgFAPxeakIAFCuWInyaKTPuLboKNZFwjb_2vsv7vqXut6XlzKzVqyXOJXMP6xmZWkrV0c6lfBmWgEwU2XmWrribXhbISFmJQDEI4Jh2VHbbM8OZi6um21qo1YpnBcUxOV-DU2OuR-mrOJSWyRzvHT32r-c2DvKVZ-PSEIS0ZRJ8GNbbhUe6nbQIwl2MYqwYjc0w
+
+
+https://portal.azure.com
+
+admin@builderautonwz1ljzksuv.onmicrosoft.com
+
+KVDvjW9h.
+Reference---------------------------------------------------------------
+If smtp not working try visitin below link from incognito
+https://accounts.google.com/b/0/DisplayUnlockCaptcha
+-------------------------------------------------------------------
+For ELk stack below video is very helpful
+https://www.youtube.com/watch?v=b4wOV6vlqPU&t=624s&ab_channel=DeekshithSN
+code ->https://github.com/DeekshithSN/kubernetes/tree/master/monitoring/kubernetes-elk
+---------------------------------------------------
+For Kibana/Grafana took entire container logs
+---------------------------------------------------
+https://www.magalix.com/blog/monitoring-of-kubernetes-cluster-through-prometheus-and-grafana  -->use the same password and username mentioned here
+https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack  -->refered to install the stack.
+
+For Kafka
+-----------------
+Kafka installation reference ==> https://dzone.com/articles/ultimate-guide-to-installing-kafka-docker-on-kuber //modified some yamls files and added additionally 
+one env value to expose the kafka broker
+
+First started with comments displayed in Azure after creating function app.
+Creating FunctionApp reference =>https://docs.microsoft.com/de-de/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure
+Java Code Consumer reference==> https://www.javatpoint.com/creating-kafka-consumer-in-java , https://www.baeldung.com/spring-kafka
+Java Code Producer referece===> https://dzone.com/articles/kafka-producer-in-java
+
+Runing Procedure in Azure
+------------------------------------
+1) Create Aks 
+2) Create cosmos db and copy uri and add it to secret script and run the secrets config files you have then run rabbit mq script with mysql and configmap yaml files
+3) Using AZ Cli deploy all the things manually from local machine kuberenets-config folder.
+4) Run all Elk service by runing yaml file in elk folder  
+run the following command to check kibana in local kubectl port-forward service/kibana 5601
+5) Then run the below command to setup complete grafana and prometheus,
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+# Helm
+ helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack
+ username:admin and password:prom-operator for grafana
+
+6) the using port forwarding access prometheus and grafana dashboards. 
+
+7) Install Kafka .yaml files present in kubernetes config.
+8) note the kafka ip and zuul ip and add it to application setting in function app.
+

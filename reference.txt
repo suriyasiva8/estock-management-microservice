@@ -42,7 +42,7 @@ docker tag localImageName hubImageName -->for tag
 docker push hubImageName -->for pushing
 docker rm imageName --> to remove image
 docker container rm containerId -->to remove container
-docker system prune --al -->to delete all stopped container data/images
+docker system prune --all -->to delete all stopped container data/images
 
 To deploy in kuberenets
 ---------------------------
@@ -107,6 +107,14 @@ First started with comments displayed in Azure after creating function app.
 Creating FunctionApp reference =>https://docs.microsoft.com/de-de/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure
 Java Code Consumer reference==> https://www.javatpoint.com/creating-kafka-consumer-in-java , https://www.baeldung.com/spring-kafka
 Java Code Producer referece===> https://dzone.com/articles/kafka-producer-in-java
+
+Note:
+Incase of local running by minikube...use below commands.
+1) minikube start --> to start kubernetes
+2) minikube dashboard --> to view kubernetes dashboard
+3) minikube stop --> to stop kubernetes
+4) minikube tunnel -->In case if any of the service have external endpoint it will not be created untill this command is given since we are using minikube.
+5) minikube delete --all -->to delete all files related to minikube cluster.
 
 Runing Procedure in Azure
 ------------------------------------

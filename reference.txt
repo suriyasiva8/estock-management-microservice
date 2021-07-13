@@ -118,6 +118,8 @@ Incase of local running by minikube...use below commands.
 
 Runing Procedure in Azure
 ------------------------------------
+Note** Basically we will not be having all property details in local because through the help cloud config server we are fetchin all properties for dev (local) and for prod (this is for Azure environmet or 
+any kubernetes environment)
 
 1) Create Aks **user version 1.18.17 the last one in dropdown with Monitoring enabled and notifiy enabled.
 2) Create cosmos db and copy uri and add it to secret script and run the secrets config files you have then run rabbit mq script with mysql and configmap yaml files

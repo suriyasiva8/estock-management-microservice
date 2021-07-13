@@ -38,7 +38,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
 		UserEntity userEntity=userRepo.findByEmailId(username);
 		if(userEntity==null) {
 			throw new UsernameNotFoundException(username);

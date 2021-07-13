@@ -1,8 +1,7 @@
 package com.estock.users.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,22 +18,13 @@ import com.estock.users.util.EmailService;
 public class UsersController {
 
 	@Autowired
-	private Environment env;
-
-	@Autowired
 	UserService userService;
 
 	@Autowired
 	OtpService otpService;
-	
+
 	@Autowired
 	EmailService emailService;
-
-	@GetMapping("/status/check")
-	public String status() {
-		return "Working on port :" + env.getProperty("local.server.port") + " and token secret:"
-				+ env.getProperty("token.secret");
-	}
 
 	@PostMapping
 	public UserDto createUser(@RequestBody UserDto userDto) {
@@ -43,15 +33,15 @@ public class UsersController {
 
 	@PostMapping("/generateOtp")
 	public void generateOtp(@RequestBody OtpDto otpDto) {
-		String username=otpDto.getEmailId();
+		String username = otpDto.getEmailId();
 		int otp = otpService.generateOTP(username);
-		emailService.sendOtpMessage(username, "OTP-EStock Management", "Hi, Your OTP No:"+otp+"");
+		emailService.sendOtpMessage(username, "OTP-EStock Management", "Hi, Your OTP No:" + otp + "");
 	}
 
 	@PostMapping(value = "/validateOtp")
 	public boolean validateOtp(@RequestBody OtpDto otpDto) {
-		int otpnum=Integer.parseInt(otpDto.getOtp());
-		String username=otpDto.getEmailId();
+		int otpnum = Integer.parseInt(otpDto.getOtp());
+		String username = otpDto.getEmailId();
 		if (otpnum >= 0) {
 			int serverOtp = otpService.getOtp(username);
 			if (serverOtp > 0) {

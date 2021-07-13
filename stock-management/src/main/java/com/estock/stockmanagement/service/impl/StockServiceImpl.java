@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,7 @@ public class StockServiceImpl implements StockService {
 			compData.setCompanyStockPriceList(stockLst);
 			return companyRepo.save(compData);
 		}
-		return comp.get();
+		return null;
 	}
 
 	@Override
@@ -57,19 +58,16 @@ public class StockServiceImpl implements StockService {
 			if (CollectionUtils.isEmpty(stockLst)) {
 				stockLst = new ArrayList<>();
 			}
-			List<Stock> stockPriceList = stockLst.stream()
-					.filter(x -> compareDates(x.getCreationDate(), firstDate, lastDate)).collect(Collectors.toList());
-			return stockPriceList;
+			return stockLst.stream().filter(x -> compareDates(x.getCreationDate(), firstDate, lastDate))
+					.collect(Collectors.toList());
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	private boolean compareDates(Date creationDate, LocalDate startDate, LocalDate endDate) {
 		LocalDate createdDate = creationDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		if (createdDate.compareTo(startDate) >= 0 && createdDate.compareTo(endDate) <= 0) {
-			return true;
-		}
-		return false;
+		return (createdDate.compareTo(startDate) >= 0 && createdDate.compareTo(endDate) <= 0);
 	}
+	
 
 }

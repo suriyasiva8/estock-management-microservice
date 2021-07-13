@@ -11,10 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class EstockUsersApplication {
-	private  static final Logger logger = LoggerFactory.getLogger("ests"); 
 
 	public static void main(String[] args) {
-		 logger.info("Rabbit MQ is working or not...");
 		SpringApplication.run(EstockUsersApplication.class, args);
 	}
 	

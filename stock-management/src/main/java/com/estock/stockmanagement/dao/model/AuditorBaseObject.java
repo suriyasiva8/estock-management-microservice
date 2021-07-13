@@ -1,6 +1,5 @@
 package com.estock.stockmanagement.dao.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 

@@ -44,6 +44,11 @@ docker rm imageName --> to remove image
 docker container rm containerId -->to remove container
 docker system prune --al -->to delete all stopped container data/images
 
+To deploy in kuberenets
+---------------------------
+kubectl apply -f filename
+kubectl apply -f ./  ->to execute all files in directory
+
 To start dashboard from kubernets after doing some stuffs
 ---------------------------------------
 kubectl proxy
@@ -68,29 +73,6 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/releas
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kubernetes/release-1.3/examples/celery-rabbitmq/rabbitmq-controller.yaml
 
 ${RABBITMQ_SERVICE_SERVICE_HOST} will contain host in config map auto created so you can use it in application.properties
-
-
-Suresh
-
-
-Spring Boot SSL Certificate - https
-https://www.thomasvitale.com/https-spring-boot-ssl-certificate/
-
-
-Two Factor AUthentication:
-
- 
-
-https://www.twilio.com/docs/authy/quickstart/two-factor-authentication-java-spring
-
- 
-
-
-https://www.twilio.com/code-exchange/omnichannel-two-fa
----------
-Below includes source code of Angular & Spring boot example for 2FA 
-https://www.javachinna.com/spring-boot-angular-two-factor-authentication/
-https://dzone.com/articles/otp-one-time-password-using-spring-boot-web-applic
 
 
 Swagger Documentation References-
@@ -128,7 +110,8 @@ Java Code Producer referece===> https://dzone.com/articles/kafka-producer-in-jav
 
 Runing Procedure in Azure
 ------------------------------------
-1) Create Aks 
+
+1) Create Aks **user version 1.18.17 the last one in dropdown with Monitoring enabled and notifiy enabled.
 2) Create cosmos db and copy uri and add it to secret script and run the secrets config files you have then run rabbit mq script with mysql and configmap yaml files
 3) Using AZ Cli deploy all the things manually from local machine kuberenets-config folder.
 4) Run all Elk service by runing yaml file in elk folder  
@@ -139,9 +122,17 @@ helm repo update
 # Helm
  helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack
  username:admin and password:prom-operator for grafana
+ 
+ then using port-forward service you can view grafana screen
 
 6) the using port forwarding access prometheus and grafana dashboards. 
 
 7) Install Kafka .yaml files present in kubernetes config.
-8) note the kafka ip and zuul ip and add it to application setting in function app.
+8) note the kafka ip and zuul ip and add it to application setting in function app and deploy azure function app from 
+STS ide by running maven command package, azure-functions:deploy  for deploying and to run in local azure-functions:run
+9)Publish angular as docker in web app with Azure active directory enabled.
+10) For cosmos db backup in azure monitor create a rule when document count greater then 10000 for last 24hours aggreation(temporary workaround later replace it 
+with datafactory logic or function app) then create loggic app with http trigger and action as running data factory pipeline 
+now add copy data in pipeline and configure source and sink.
+
 

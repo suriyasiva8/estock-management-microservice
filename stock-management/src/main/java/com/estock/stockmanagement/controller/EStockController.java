@@ -34,27 +34,27 @@ public class EStockController {
 
 	@PostMapping("/company/register")
 	public ResponseEntity<Company> registerCompany(@RequestBody Company companyData) {
-		Company _company = companyService.saveCompanyDetails(companyData);
-		return new ResponseEntity<>(_company, HttpStatus.CREATED);
+		Company company = companyService.saveCompanyDetails(companyData);
+		return new ResponseEntity<>(company, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/company/info/{companyCode}")
 	public ResponseEntity<Company> getCompanyData(@PathVariable String companyCode) {
-		Optional<Company> _company = companyService.getCompanyData(companyCode);
-		if (_company.isPresent()) {
-			return new ResponseEntity<>(_company.get(), HttpStatus.OK);
+		Optional<Company> company = companyService.getCompanyData(companyCode);
+		if (company.isPresent()) {
+			return new ResponseEntity<>(company.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(new Company(), HttpStatus.NO_CONTENT);
 		}
 	}
 	
 	@GetMapping("/company/getall")
 	public ResponseEntity<List<Company>> getAllCompanyData() {
-		List<Company> _company = companyService.getAllCompanyData();
-		if (!CollectionUtils.isEmpty(_company)) {
-			return new ResponseEntity<>(_company, HttpStatus.OK);
+		List<Company> company = companyService.getAllCompanyData();
+		if (!CollectionUtils.isEmpty(company)) {
+			return new ResponseEntity<>(company, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(company, HttpStatus.NO_CONTENT);
 		}
 	}
 	
@@ -66,8 +66,8 @@ public class EStockController {
 	
 	@PostMapping("/stock/add/{companyCode}")
 	public ResponseEntity<Company> addStockPrice(@PathVariable String companyCode,@RequestBody Stock stockPrice) {
-		Company _company=stockService.addStock(companyCode,stockPrice.getStockPrice());
-		return new ResponseEntity<>(_company,HttpStatus.CREATED);
+		Company company=stockService.addStock(companyCode,stockPrice.getStockPrice());
+		return new ResponseEntity<>(company,HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/stock/get/{companyCode}/{startDate}/{endDate}")
